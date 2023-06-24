@@ -20,7 +20,7 @@
           <div class="col-8">
               <br><br>
             <h1>MVC Cadastro de curso</h1>
-            <button type="button" class="btn btn-outline-primary"><a class="nav-link" href="cadCurso.jsp">Calculadora IMC</a></button>
+            <button type="button" class="btn btn-outline-primary"><a class="nav-link" href="cadCurso.jsp">Cadastrar Cruso</a></button>
           </div>
           <div class="col">
           </div>
