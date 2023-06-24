@@ -12,7 +12,7 @@
         <%@ include file="estilos.jsp" %>
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="text-bg-dark">
         <%@ include file="menu.jsp" %>
         
     </body>

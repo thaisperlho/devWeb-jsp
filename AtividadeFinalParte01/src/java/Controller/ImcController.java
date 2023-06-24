@@ -41,7 +41,7 @@ public class ImcController extends HttpServlet {
             modelo.setG(request.getParameter("txtGenero"));
             double resultado = acao.CalculaValor(modelo);
             String result = String.format("%.2f", resultado);
-            response.sendRedirect("index.jsp?resultado=" + result);
+            response.sendRedirect("calculadoraimc.jsp?resultado=" + result);
         }
         
     }

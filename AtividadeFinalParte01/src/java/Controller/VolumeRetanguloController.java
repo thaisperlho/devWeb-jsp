@@ -6,6 +6,8 @@ package Controller;
 
 import Model.Dao;
 import Model.ModelImc;
+import Model.ModelRetangulo;
+import Model.ModelTrapezio;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thaiscarvalho
  */
-@WebServlet(name = "ControllImc", urlPatterns = {"/ControllImc","/Somar"})
-public class ImcController extends HttpServlet {
+@WebServlet(name = "VolumeRetanguloController", urlPatterns = {"/VolumeRetanguloController","/volume"})
+public class VolumeRetanguloController extends HttpServlet {
 
        @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,16 +34,18 @@ public class ImcController extends HttpServlet {
             throws ServletException, IOException {
         
         String action = request.getServletPath();
-        if(action.equals("/Somar"))
+       
+        if(action.equals("/volume"))
         {
             Dao acao = new Dao();
-            ModelImc modelo = new ModelImc();
+            ModelRetangulo retangulo = new  ModelRetangulo();
             
-            modelo.setH(Double.parseDouble(request.getParameter("txtVal1")));
-            modelo.setG(request.getParameter("txtGenero"));
-            double resultado = acao.CalculaValor(modelo);
-            String result = String.format("%.2f", resultado);
-            response.sendRedirect("index.jsp?resultado=" + result);
+            retangulo.setComprimento(Double.valueOf(request.getParameter("txtVal1")));
+            retangulo.setLargura(Double.valueOf(request.getParameter("txtVal2")));
+            retangulo.setAltura(Double.valueOf(request.getParameter("txtAlt")));
+            
+            double resul = acao.calcRetangulo(retangulo);
+            response.sendRedirect("volumeRetangulo.jsp?resulRetangulo=" + resul);
         }
         
     }

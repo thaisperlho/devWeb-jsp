@@ -9,16 +9,13 @@
         <a class="nav-link" href="calculadoraimc.jsp">Calculadora IMC</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=".jsp">XXXXXXX</a>
+        <a class="nav-link" href="calculadora.jsp">Calculadora</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=".jsp">XXXXXXX</a>
+        <a class="nav-link" href="areaTrapezio.jsp">Área Trapézio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=".jsp">XXXXXX</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href=".jsp">XXXXXX</a>
+        <a class="nav-link" href="volumeRetangulo.jsp">Volume Retangulo</a>
       </li>
     </ul>
   </div>

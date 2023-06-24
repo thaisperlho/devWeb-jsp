@@ -12,7 +12,8 @@
         <%@ include file="estilos.jsp" %>
         <title>JSP Page</title>
     </head>
-    <body>
+    <body class="text-bg-dark">
+        <%@ include file="menu.jsp" %>
         <div class="container text-center">
         <div class="row">
           <div class="col">
@@ -27,8 +28,9 @@
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Genero</label>
                         <select name="txtGenero" class="form-select" aria-label="Default select example">
-                            <option value="h">Homem</option>
-                            <option value="m">Mulher</option>
+                            <option disabled="" selected>Selecione uma opçao</option>
+                            <option value="homem">Homem</option>
+                            <option value="mulher">Mulher</option>
                         </select>
                     </div>
                     <button type="submit" name="btnCalc" class="btn btn-primary">Calcular</button>

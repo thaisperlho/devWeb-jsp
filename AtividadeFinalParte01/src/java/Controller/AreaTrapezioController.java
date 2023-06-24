@@ -6,6 +6,7 @@ package Controller;
 
 import Model.Dao;
 import Model.ModelImc;
+import Model.ModelTrapezio;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author thaiscarvalho
  */
-@WebServlet(name = "ControllImc", urlPatterns = {"/ControllImc","/Somar"})
-public class ImcController extends HttpServlet {
+@WebServlet(name = "AreaTrapezioController", urlPatterns = {"/AreaTrapezioController","/trapezio"})
+public class AreaTrapezioController extends HttpServlet {
 
        @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,16 +33,18 @@ public class ImcController extends HttpServlet {
             throws ServletException, IOException {
         
         String action = request.getServletPath();
-        if(action.equals("/Somar"))
+       
+        if(action.equals("/trapezio"))
         {
             Dao acao = new Dao();
-            ModelImc modelo = new ModelImc();
+            ModelTrapezio trapezio = new  ModelTrapezio();
             
-            modelo.setH(Double.parseDouble(request.getParameter("txtVal1")));
-            modelo.setG(request.getParameter("txtGenero"));
-            double resultado = acao.CalculaValor(modelo);
-            String result = String.format("%.2f", resultado);
-            response.sendRedirect("index.jsp?resultado=" + result);
+            trapezio.setbMaior(Double.valueOf(request.getParameter("txtVal1")));
+            trapezio.setbMenor(Double.valueOf(request.getParameter("txtVal2")));
+            trapezio.setA(Double.valueOf(request.getParameter("txtAlt")));
+            
+            double resul = acao.calcTrapezio(trapezio);
+            response.sendRedirect("areaTrapezio.jsp?resultado=" + resul);
         }
         
     }

@@ -13,7 +13,7 @@ public class Dao {
         public double CalculaValor(ModelImc imc) {
         double res;
 
-        if (imc.getG().equals("h")) {
+        if (imc.getG().equals("homem")) {
             res = ((72.7 * imc.getH()) - 58);
         } else {
             res = ((62.1 * imc.getH()) - 44.7);
@@ -22,26 +22,30 @@ public class Dao {
         return res;
 
     }
-   
+    
+    public double conta(ModelCalculadora operacao) {
+
+            double res = 0;
+
+            switch (operacao.getOperacao()) {
+                case "+" -> res = operacao.getValor1() + operacao.getValor2();
+                case "-" -> res = operacao.getValor1() - operacao.getValor2();
+                case "*" -> res = operacao.getValor1() * operacao.getValor2();
+                case "/" -> res =  operacao.getValor1() / operacao.getValor2();
+                default -> {
+                }
+            }
+           return res;
+        }
     
     
-    public int SomarValor(CalculadoraModel soma){
-      int res = soma.getValor1() + soma.getValor2();
-      return res;
+    public double calcTrapezio(ModelTrapezio trapezio) {
+        double area = ((trapezio.getbMaior() + trapezio.getbMenor())* trapezio.getA())/2 ;
+       return area;
     }
-        
-    public int SubtrairValor(CalculadoraModel subtracao){
-      int res = subtracao.getValor1() - subtracao.getValor2();
-      return res;
-    }
-            
-    public int DividirValor(CalculadoraModel divisao){
-      int res = divisao.getValor1() / divisao.getValor2();
-      return res;
-    }
-    
-    public int MultiplicarValor(CalculadoraModel multi){
-      int res = multi.getValor1() * multi.getValor2();
-      return res;
+     
+     public double calcRetangulo(ModelRetangulo retangulo) {
+        double volume = (retangulo.getComprimento() * retangulo.getLargura() * retangulo.getAltura());
+       return volume;
     }
 }
